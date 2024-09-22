@@ -340,8 +340,8 @@ class _ScrollablePositionedListState extends State<ScrollablePositionedList>
   void initState() {
     super.initState();
     ItemPosition? initialPosition = PageStorage.of(context).readState(context);
-    var primary = _ListDisplayDetails(const ValueKey('Ping'),  widget.itemScrollController?.scrollController ?? ScrollController(keepScrollOffset: false));
-    var secondary = _ListDisplayDetails(const ValueKey('Pong'), ScrollController(keepScrollOffset: false));
+     primary = _ListDisplayDetails(const ValueKey('Ping'),  widget.itemScrollController?.scrollController ?? ScrollController(keepScrollOffset: false));
+     secondary = _ListDisplayDetails(const ValueKey('Pong'), ScrollController(keepScrollOffset: false));
     primary.target = initialPosition?.index ?? widget.initialScrollIndex;
     primary.alignment =
         initialPosition?.itemLeadingEdge ?? widget.initialAlignment;
