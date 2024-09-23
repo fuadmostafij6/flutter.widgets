@@ -114,7 +114,7 @@ void main() {
             height: separatorHeight,
             child: Text('Separator $index'),
           ),
-          itemPositionsListener: itemPositionsListener,
+          itemPositionsListener: itemPositionsListener, scrollController: ScrollController(),
         ),
       ),
     );

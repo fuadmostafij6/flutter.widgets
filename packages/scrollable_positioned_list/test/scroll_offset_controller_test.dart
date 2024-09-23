@@ -66,7 +66,7 @@ void main() {
           padding: padding,
           addAutomaticKeepAlives: addAutomaticKeepAlives,
           addRepaintBoundaries: addRepaintBoundaries,
-          minCacheExtent: minCacheExtent,
+          minCacheExtent: minCacheExtent, scrollController: ScrollController(),
         ),
       ),
     );

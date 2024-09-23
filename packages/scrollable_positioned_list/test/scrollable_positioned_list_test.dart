@@ -2222,7 +2222,7 @@ void main() {
                       height: itemHeight,
                       child: Text('Item $index'),
                     );
-                  },
+                  }, scrollController: ScrollController(),
                 );
               },
             ),

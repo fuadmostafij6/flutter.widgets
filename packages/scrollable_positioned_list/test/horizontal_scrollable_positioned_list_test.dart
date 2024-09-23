@@ -38,7 +38,7 @@ void main() {
           scrollDirection: Axis.horizontal,
           reverse: reverse,
           padding: padding,
-          initialScrollIndex: initialScrollIndex,
+          initialScrollIndex: initialScrollIndex, scrollController: ScrollController(),
         ),
       ),
     );

@@ -36,7 +36,7 @@ void main() {
           ),
           itemPositionsListener: itemPositionsListener,
           reverse: true,
-          padding: padding,
+          padding: padding, scrollController: ScrollController(),
         ),
       ),
     );

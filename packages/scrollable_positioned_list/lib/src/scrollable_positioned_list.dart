@@ -56,7 +56,7 @@ class ScrollablePositionedList extends StatefulWidget {
     this.addSemanticIndexes = true,
     this.addAutomaticKeepAlives = true,
     this.addRepaintBoundaries = true,
-    this.minCacheExtent,
+    this.minCacheExtent, required this.scrollController,
   })  : assert(itemCount != null),
         assert(itemBuilder != null),
         itemPositionsNotifier = itemPositionsListener as ItemPositionsNotifier?,
@@ -86,7 +86,7 @@ class ScrollablePositionedList extends StatefulWidget {
     this.addSemanticIndexes = true,
     this.addAutomaticKeepAlives = true,
     this.addRepaintBoundaries = true,
-    this.minCacheExtent,
+    this.minCacheExtent, required this.scrollController,
   })  : assert(itemCount != null),
         assert(itemBuilder != null),
         assert(separatorBuilder != null),
@@ -161,6 +161,7 @@ class ScrollablePositionedList extends StatefulWidget {
 
   /// The amount of space by which to inset the children.
   final EdgeInsets? padding;
+  final ScrollController scrollController;
 
   /// Whether to wrap each child in an [IndexedSemantics].
   ///
@@ -193,13 +194,10 @@ class ScrollablePositionedList extends StatefulWidget {
 /// Controller to jump or scroll to a particular position in a
 /// [ScrollablePositionedList].
 class ItemScrollController {
-  ItemScrollController({ ScrollController? scrollController }) {
-    this.scrollController = scrollController ?? ScrollController(keepScrollOffset: false);
-  }
 
   /// Exposes [ScrollablePositionedList]'s Primary scroll controller
   ///
-  ScrollController? scrollController;
+
   /// Whether any ScrollablePositionedList objects are attached this object.
   ///
   /// If `false`, then [jumpTo] and [scrollTo] must not be called.
@@ -340,7 +338,7 @@ class _ScrollablePositionedListState extends State<ScrollablePositionedList>
   void initState() {
     super.initState();
     ItemPosition? initialPosition = PageStorage.of(context).readState(context);
-     primary = _ListDisplayDetails(const ValueKey('Ping'),  widget.itemScrollController?.scrollController ?? ScrollController(keepScrollOffset: false));
+     primary = _ListDisplayDetails(const ValueKey('Ping'),  widget.scrollController);
      secondary = _ListDisplayDetails(const ValueKey('Pong'), ScrollController(keepScrollOffset: false));
     primary.target = initialPosition?.index ?? widget.initialScrollIndex;
     primary.alignment =
